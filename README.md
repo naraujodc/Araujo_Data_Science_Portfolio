@@ -12,6 +12,16 @@ This portfolio showcases my academic and personal Data Science projects, as well
 - **Languages:** Python (Pandas, NumPy, Matplotlib, Seaborn, NLTK), R (tidyverse, tidyr, ggplot2)
 - **Tools:** MS Excel, SPSS, Prism, FIJI, Tableau
 
+![RStudio](https://img.shields.io/badge/RStudio-1f65cc?style=flat&logo=rstudioide&logoColor=%2375AADB)&nbsp;
+![Python](https://img.shields.io/badge/-Python-ffe873?style=flat&logo=python)&nbsp;
+![NumPy](https://img.shields.io/badge/numpy%20-%23013243.svg?&style=flat&logo=numpy&logoColor=white)&nbsp;
+![Pandas](https://img.shields.io/badge/pandas%20-%23150458.svg?&style=flat&logo=pandas&logoColor=white)&nbsp;
+![VS Code](https://img.shields.io/badge/VS_Code-179ff1)&nbsp;
+![FIJI](https://img.shields.io/badge/FIJI_ImageJ-101e27?logo=imagej&logoColor=00D8E0)&nbsp;
+![SPSS](https://img.shields.io/badge/SPSS-0530ad)&nbsp;
+![MS Excel](https://img.shields.io/badge/MS_Excel-1D6F42)&nbsp;
+![Tableau](https://img.shields.io/badge/Tableau-0070BA)&nbsp;
+
 ## Projects
 
 ## Micro Projects
