@@ -2,7 +2,8 @@
 import streamlit as st
 
 # Display a simple text message
-
+st.title("Hello, streamlit!")
+st.markdown("### This is my first streamlit app!")
 # Display a large title on the app
 
 # ------------------------
@@ -11,24 +12,29 @@ import streamlit as st
 
 # Create a button that users can click.
 # If the button is clicked, the message changes.
+if st.button("Click me!"):
+    st.write("You clicked the button. Nice work!")
+else:
+    st.write("Go ahead... click the button. I dare you.")
 
 # ------------------------
 # COLOR PICKER WIDGET
 # ------------------------
-
+color = st.color_picker("What's your favorite color?")
 # Creates an interactive color picker where users can choose a color.
 # The selected color is stored in the variable 'color'.
 
 # Display the chosen color value
-
+st.write(f"Your favorite color is {color}")
 # ------------------------
 # ADDING DATA TO STREAMLIT
 # ------------------------
 
 # Import pandas for handling tabular data
+import pandas as pd
 
 # Display a section title
-
+st.title("Data")
 # Create a simple Pandas DataFrame with sample data
 
 
@@ -52,6 +58,10 @@ import streamlit as st
 # ------------------------
 # NEXT STEPS & CHALLENGE
 # ------------------------
+st.title("Feedback")
+selected = st.checkbox("Rate this webpage")
+if selected == True:
+    st.slider("Rate this webpage from 0 to 10", min_value=0, max_value=10)
 
 # Play around with more Streamlit widgets or elements by checking the documentation:
 # https://docs.streamlit.io/develop/api-reference
