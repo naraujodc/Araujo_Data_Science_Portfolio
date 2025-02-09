@@ -33,7 +33,7 @@ st.markdown(
 # ======================
 
 # add dataset as a pandas dataframe
-df = pd.read_csv("data/netflix_titles.csv")
+df = pd.read_csv("data/netflix_titles.csv", dtype = {"Release Year": str})
 
 # rename columns
 df = df.rename(columns = {
@@ -56,6 +56,17 @@ df.set_index("Title", inplace=True)
 # delete show_id column
 df = df.drop("show_id", axis=1)
 
+# reorder columns
+df = df.iloc[:, [0, 8, 6, 5, 7, 3, 4, 1, 2, 9]]
+
+# convert strings into lists for list columns
+df["Categories"] = df["Categories"].str.split(", ")
+df["Country"] = df["Country"].str.split(", ")
+df["Cast"] = df["Cast"].str.split(", ")
+
+# convert release year column into string to avoid commas in years
+df["Release Year"] = df["Release Year"].astype(str)
+
 # ======================
 # creating filters for the dataframe
 # ======================
@@ -74,8 +85,7 @@ with col1:
     media_type = st.segmented_control(
         "Filter by media type:",
         options = media_types,
-        selection_mode = "multi",
-        default = ["Movie", "TV Show"]
+        selection_mode = "multi"
     )
 
 # filter dataset according to chosen type
@@ -84,7 +94,8 @@ if media_type:
 
 ## categories
 # creating a multiselect button for categories
-categories = df["Categories"].unique()
+categories = df["Categories"].explode().unique()
+categories = sorted(categories)
 
 with col2:
     category = st.multiselect(
@@ -94,11 +105,14 @@ with col2:
 
 # filter dataset according to categories
 if category:
-    filtered_df = df[df["Categories"].isin(category)]
+    # check if any of the categories in the row match any selected category
+    filtered_df = df[df["Categories"].apply(lambda x: any(cat in x for cat in category))]
 
 ## rating
 # creating a multiselect button for ratings
-ratings = df["Rating"].unique()
+# using a list to order it by restriction
+ratings = ["G", "PG", "PG-13", "R", "NC-17",
+"TV-Y", "TV-Y7", "TV-Y7 FV", "TV-G", "TV-PG", "TV-14", "TV-MA"]
 
 with col3:
     rating = st.multiselect(
@@ -109,6 +123,10 @@ with col3:
 # filter dataset according to ratings
 if rating:
     filtered_df = df[df["Rating"].isin(rating)]
+
+# ======================
+# displaying the dataframe
+# ======================
 
 # display dataframe
 st.dataframe(filtered_df)
