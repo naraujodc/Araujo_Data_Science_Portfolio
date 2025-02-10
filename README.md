@@ -28,8 +28,8 @@ This portfolio showcases my academic and personal Data Science projects, as well
 ## Projects
 
 ## Micro Projects
-### Web Apps | Python
-- [Netflix Listings Navigator](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/basic_streamlit_app)&nbsp;
+### Web Apps
+- [Netflix Listings Navigator](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/basic_streamlit_app): This web app allows users to navigate through a dataframe of Netflix movies and TV shows applying different filters. **Language:** Python (Streamlit, Pandas)&nbsp;
 
 ## Certificates
 - [Creating Web Apps with Streamlit](https://github.com/naraujodc/ARAUJO_Data_Science_Portfolio/blob/54671b0a720352d2f984af10a010bcaa5b1767c2/Certificates/Creating%20Web%20Apps%20with%20Streamlit.pdf) *(Asimov Academy)*
