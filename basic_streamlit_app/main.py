@@ -72,7 +72,7 @@ df["Release Year"] = df["Release Year"].astype(str)
 # ======================
 
 # setting the filtered df before filters
-filtered_df = df
+filtered_df = df.copy()
 
 # create columns to place the widgets
 col1, col2, col3 = st.columns([0.2, 0.55, 0.25])

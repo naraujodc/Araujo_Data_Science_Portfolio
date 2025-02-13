@@ -66,14 +66,39 @@ st.subheader("Handle Missing Data")
 # select box with names of columns that have numeric data types
 column = st.selectbox("Choose a column to fill", df.select_dtypes(include=["number"]).columns)
 
-# Work on a copy of the DataFrame so the original data remains unchanged.
-st.dataframe(df[column])
-
 # Apply the selected method to handle missing data.
+#st.dataframe(df[column])
+
+# radio button with data cleaning methods
 method = st.radio("Choose a method",
                   options = ["Original DF", "Drop Rows", "Drop Columns",
                              "Impute Mean", "Impute Median", "Impute Zero"])
 
+# Work on a copy of the DataFrame so the original data remains unchanged.
+df_clean = df.copy() # just doing df_clean = df would still change the original df
+
+if method == "Original DF":
+    pass
+elif method == "Drop Rows":
+    df_clean = df_clean.dropna(subset = [column])
+elif method == "Drop Columns": # if >50% is missing
+    df_clean = df_clean.drop(columns = df_clean.columns[df_clean.isnull().mean() > 0.5])
+elif method == "Impute Mean":
+    df_clean[column] = df_clean[column].fillna(df[column].mean())
+elif method == "Impute Median":
+    df_clean[column] = df_clean[column].fillna(df[column].median())
+elif method == "Impute Zero":
+    df_clean[column] = df_clean[column].fillna(0)
+
+st.subheader("Cleaned Data Distribution")
+fig, ax = plt.subplots()
+sns.histplot(df_clean[column], kde = True)
+st.pyplot(fig)
+
+# imputation methods are not a good idea for MNAR (like age here)
+
+#st.dataframe(df_clean)
+st.write(df_clean.describe())
 # ------------------------------------------------------------------------------
 # Compare Data Distributions: Original vs. Cleaned
 #
