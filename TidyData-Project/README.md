@@ -40,10 +40,15 @@ df_medals[["gender", "sport"]] = df_medals["sport"].str.split("_", expand = True
 # drop rows containing null data
 df_medals = df_medals.dropna()
 ```
-With this, I transformed a messy dataset into a tidy dataframe in a way that can be visualized as:
+With this, I transformed a messy dataset into a tidy dataframe in a way that can be understood as:
 
 
 ### Data Manipulation and Visualization
+Then, I used a few aggregation techniques to manipulate the data and construct useful visualizations such as the following:
+<p align="center">
+<img src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/TidyData-Project/images/medals_by_sport.png" width="400" height="350"/>
+<img src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/TidyData-Project/images/medals_by_gender_type.png" width="400" height="350"/>
+</p>
 
 ## Dataset Description
 
