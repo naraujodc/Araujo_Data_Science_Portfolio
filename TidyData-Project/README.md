@@ -1,8 +1,8 @@
 # Tidy Data Project
 ## Table of Contents:
-[1. Project Overview (With Visual Examples)](#project-overview-with-visual-examples)
-[2. Dataset Description](#dataset-description)
-[3. Instructions for Use](#instructions-for-use)
+[1. Project Overview (With Visual Examples)](#project-overview-with-visual-examples)\
+[2. Dataset Description](#dataset-description)\
+[3. Instructions for Use](#instructions-for-use)\
 [4. References](#references)
 
 ## Project Overview (With Visual Examples)
@@ -51,6 +51,6 @@ With this, I transformed a messy dataset into a tidy dataframe in a way that can
 
 ## References
 Below I have linked some references that guided this work and/or that may be useful for further reading into the topic of tidy data and the techniques I have used.
-[***Tidy Data***](https://vita.had.co.nz/papers/tidy-data.pdf), by Hadley Wickham
-[Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
-[From Data to Viz](https://www.data-to-viz.com/)
+- [***Tidy Data***](https://vita.had.co.nz/papers/tidy-data.pdf), by Hadley Wickham
+- [Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
+- [From Data to Viz](https://www.data-to-viz.com/)
