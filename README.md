@@ -32,7 +32,7 @@ This portfolio showcases my academic and personal Data Science projects, as well
 ## Projects
 <img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/tidy_data_cover.png"> **[Tidy Data Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/TidyData-Project)**
 
-In this project I apply the principles of tidy data to a messy dataset and demonstrate how tidy data can be easily used for data analysis, manipulation, and visualization. This showcases my ability to handle messy data, create standard data structures, and use them for EDA&mdash;essential skills for any work in Data Science.
+In this project I apply the principles of tidy data to a messy dataset and demonstrate how tidy data can be easily used for data analysis, manipulation, and visualization. This showcases my ability to handle messy data, create standard data structures, and use them for EDA.
 
 ![Python](https://img.shields.io/badge/-Python-ffe873?style=flat&logo=python)&nbsp;
 ![Pandas](https://img.shields.io/badge/pandas%20-%23150458.svg?&style=flat&logo=pandas&logoColor=white)&nbsp;
