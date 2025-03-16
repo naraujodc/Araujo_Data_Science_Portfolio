@@ -1,4 +1,10 @@
 # Tidy Data Project
+![Python](https://img.shields.io/badge/-Python-ffe873?style=flat&logo=python)&nbsp;
+![Pandas](https://img.shields.io/badge/pandas%20-%23150458.svg?&style=flat&logo=pandas&logoColor=white)&nbsp;
+![Seaborn](https://img.shields.io/badge/Seaborn-79b6bc)&nbsp;
+![Matplotlib](https://img.shields.io/badge/Matplotlib-1e3f5a)
+![highlight_text](https://img.shields.io/badge/highlight_text-be5103)
+
 ## Table of Contents:
 [1. Project Overview (With Visual Examples)](#project-overview-with-visual-examples)\
 [2. Files](#files)\
@@ -114,6 +120,7 @@ _1875 rows, 4 columns_
 - `gender`: gender of the medalist (categorical)
 
 ## Instructions for Use
+**Note:** If you only want to read the Jupyter Notebook without running it, simply click on the `TidyData.ipynb` file in this repository.
 ### Installation:
 1. Install Anaconda.
 2. Clone this repository and cd into it.
