@@ -87,6 +87,7 @@ I highly recommend reading the **Jupyter Notebook** associated with this project
 ## Files
 - `TidyData.ipynb`: This notebook contains the code and detailed explanations for the project.
 - `olympics_08_medalists.csv`: Raw data file.
+- `images`: This directory stores the plots generated in the Jupyter Notebook and other images used in the documentation.
 - `README.md`: Project documentation.
 - `requirements.txt`: List of required Python libraries.
 
