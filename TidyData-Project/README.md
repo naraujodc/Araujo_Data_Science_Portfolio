@@ -2,7 +2,7 @@
 ![Python](https://img.shields.io/badge/-Python-ffe873?style=flat&logo=python)&nbsp;
 ![Pandas](https://img.shields.io/badge/pandas%20-%23150458.svg?&style=flat&logo=pandas&logoColor=white)&nbsp;
 ![Seaborn](https://img.shields.io/badge/Seaborn-79b6bc)&nbsp;
-![Matplotlib](https://img.shields.io/badge/Matplotlib-1e3f5a)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-1e3f5a)&nbsp;
 ![highlight_text](https://img.shields.io/badge/highlight_text-be5103)
 
 ## Table of Contents:
