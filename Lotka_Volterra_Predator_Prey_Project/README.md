@@ -63,8 +63,15 @@ $$
 $$
 
 ### Phase-Plane Plot
-I plotted a phase-plane diagram to visualize the state of the predator population versus the state of the prey population. Here, the arrows indicate the direction of change of the populations.
+I plotted a phase-plane diagram to visualize the state of the predator population versus the state of the prey population. I used an arbitrary case where $r=0.1$, $\alpha=0.005$, $\epsilon=0.4$, and $\mu=0.08$. Here, the arrows indicate the direction of change of the populations.
+
+<p align="center">
+<img width=411 height=386.25 src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/phase%20arrows.png">
+<p />
 
 The curves I added to the diagram are the **null clines**, which indicate where one of the variables remains constant and correspond to the co-existence equilibrium equations I found previously. Their point of intersection represents the equilibrium for the whole system. In addition, it is possible to see that the null clines divide the phase-plane space into four sectors:
 
 In the phase-plane plot, the prey and predator populations seem to flow in a circle around the co-existence equilibrium. At some points, both of them increase/decrease at the same time, whereas at other points one of them increases while the other decreases, always cyclically. Thus, I predicted that the solution to this model would reveal a cyclical, wavelike pattern of increasing and decreasing populations, with the moments of increase/decrease partially overlapping.
+
+### Solution to the Model
+I used the ordinary differential equation (ODE) solver from the R `deSolve` library to find the solutions for the Lotka-Volterra predator-prey model. I used the same parameters as in the phase-plane plot ($r=0.1$, $\alpha=0.005$, $\epsilon=0.4$, and $\mu=0.08$) and the initial conditions $n_1=60$, $n_2=50$.
