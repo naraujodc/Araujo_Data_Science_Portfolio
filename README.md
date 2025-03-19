@@ -40,6 +40,14 @@ In this project I apply the principles of tidy data to a messy dataset and demon
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-1e3f5a)&nbsp;
 ![highlight_text](https://img.shields.io/badge/highlight_text-be5103)&nbsp;
 
+#
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/lotka-volterra_cover.png"> **[Lotka-Volterra Predator-Prey Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Lotka_Volterra_Predator_Prey_Project)**
+
+The purpose of this project is to explore the famous Lotka-Volterra predator-prey model and its applications to the analysis of population dynamics using R. This showcases my ability to work with dynamical models, use them for predictions, and solve ordinary differential equations.
+
+![RStudio](https://img.shields.io/badge/RStudio-1f65cc?style=flat&logo=rstudioide&logoColor=%2375AADB)&nbsp;
+![deSolve](https://img.shields.io/badge/deSolve-blue)&nbsp;
+
 <br />
 
 ## Micro Projects
