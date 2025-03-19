@@ -72,14 +72,17 @@ out = ode(y = c(60, 50), times = c(1:5000)*0.1,
 
 # plot n1(t)
 plot(out[,1], out[,2], type = "l", xlab = "Time", ylab = "n1")
+title("Prey Population Dynamics in Lotka-Volterra Model")
 
 # plot n2(t)
 plot(out[,1], out[,3], type = "l", xlab = "Time", ylab = "n2")
+title("Predator Population Dynamics in Lotka-Volterra Model")
 
 # plot n1(t) and n2(t) in the same plot
 plot(out[,1], out[,2], type = "l", ylim = c(0,150), xlab = "Time", ylab = "n")
 lines(out[,1], out[,3], col = 2)
 legend("topleft", c("n1", "n2"), col = c(1,2), lwd = 1)
+title("Predator-Prey Population Dynamics in Lotka-Volterra Model")
 
 
 ## predator-prey model with carrying capacity for the prey
@@ -129,15 +132,20 @@ out.K = ode(y = c(60, 50), times = c(1:5000)*0.1,
 
 # plot n1(t)
 plot(out.K[,1], out.K[,2], type = "l", xlab = "Time", ylab = "n1")
+title("Prey Population Dynamics with Carrying Capacity")
+abline(h=50, lty=2)
 
 # plot n2(t)
 plot(out.K[,1], out.K[,3], type = "l", xlab = "Time", ylab = "n2")
+title("Predator Population Dynamics with Prey Carrying Capacity")
 
 # plot n1(t) and n2(t) in the same plot
 plot(out.K[,1], out.K[,2], type = "l", ylim = c(0,80),
      xlab = "Time", ylab = "n")
 lines(out.K[,1], out.K[,3], col = 2)
+abline(h=50, lty=2)
 legend("topleft", c("n1", "n2"), col = c(1,2), lwd = 1)
+title("Population Dynamics with Prey Carrying Capacity")
 
 
 ## finding circumstances for invasion
