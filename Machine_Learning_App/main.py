@@ -6,7 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import graphviz
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, roc_curve, roc_auc_score, auc, RocCurveDisplay
@@ -61,7 +61,7 @@ def preprocess(df):
     return df, X, y
 
 # split dataset
-def split_data(X, y, test_size = 0.2, random_state=None):
+def split_data(X, y, test_size = 0.2, random_state=42):
     return train_test_split(X, y, test_size=test_size, random_state=random_state)
 
 # train decision tree
@@ -69,9 +69,37 @@ def train_decision_tree(X_train, y_train, criterion, max_depth, min_samples_spli
     model = DecisionTreeClassifier(criterion=criterion,
                                    max_depth=max_depth,
                                    min_samples_split=min_samples_split,
-                                   min_samples_leaf=min_samples_leaf)
+                                   min_samples_leaf=min_samples_leaf,
+                                   random_state=42)
     model.fit(X_train, y_train)
     return model
+
+# use grid search cross-validation to find best decision tree
+def find_best_tree(X_train, y_train, X_test, scoring):
+    # define parameter grid
+    param_grid = {
+        "criterion" : ["gini", "entropy", "log_loss"],
+        "max_depth" : range(1, 11),
+        "min_samples_split" : range(2, 11, 2),
+        "min_samples_leaf" : range(1, 11)
+    }
+    # initialize decision tree classifier
+    dtree = DecisionTreeClassifier(random_state=42)
+    # set up grid search cv
+    grid_search = GridSearchCV(estimator=dtree,
+                               param_grid=param_grid,
+                               cv=5,
+                               scoring=scoring)
+    # fit grid search cv to the training data
+    grid_search.fit(X_train, y_train)
+    # get best parameters
+    best_params = grid_search.best_params_
+    # get best estimator
+    best_dtree = grid_search.best_estimator_
+    # predict on the test set
+    y_pred = best_dtree.predict(X_test)
+    return y_pred, best_params, best_dtree
+
 
 # plot confusion matrix
 def plot_confusion_matrix(cm):
@@ -93,8 +121,8 @@ def plot_multiclass_roc(model, y_train, X_test, y_test, target_classes, target_n
     fig, ax = plt.subplots(figsize=(6, 6))
 
     if n_classes == 2:
-        # Binary classification case: plot a single ROC curve
-        # Assuming y_score has shape (n_samples, 1) and contains the probability of the positive class
+        # binary classification case: plot a single ROC curve
+        # assuming y_score has shape (n_samples, 1) and contains the probability of the positive class
         fpr, tpr, _ = roc_curve(y_onehot_test[:, 0], y_score[:, 1])
         roc_auc = auc(fpr, tpr)
         ax.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (AUC = {roc_auc:.2f})')
@@ -104,8 +132,8 @@ def plot_multiclass_roc(model, y_train, X_test, y_test, target_classes, target_n
         ax.set_title('Receiver Operating Characteristic')
         ax.legend(loc="lower right")
     else:
-        # Multi-class classification case: plot macro-average and individual ROC curves
-        # Multi-class classification case: plot macro-average and individual ROC curves
+        # multi-class classification case: plot macro-average and individual ROC curves
+        # multi-class classification case: plot macro-average and individual ROC curves
         fpr = []
         tpr = []
         roc_auc = []
@@ -157,24 +185,6 @@ def plot_multiclass_roc(model, y_train, X_test, y_test, target_classes, target_n
         ax.legend(loc="lower right")
 
     st.pyplot(fig)
-    
-
-    # plt.figure(figsize=(8, 6))
-    # colors = plt.cm.get_cmap('viridis', n_classes)
-
-    # for i, color in zip(range(n_classes), colors.colors):
-    #     plt.plot(fpr_list[i], tpr_list[i], color=color, lw=2,
-    #              label='ROC curve of class {0} (area = {1:0.2f})'
-    #              ''.format(target_classes[i], roc_auc_list[i]))
-
-    # plt.plot([0, 1], [0, 1], 'k--', lw=2)
-    # plt.xlim([0.0, 1.0])
-    # plt.ylim([0.0, 1.05])
-    # plt.xlabel('False Positive Rate')
-    # plt.ylabel('True Positive Rate')
-    # plt.title("Receiver Operating Characteristic (ROC) Curve")
-    # plt.legend(loc="lower right")
-    # st.pyplot(plt)
 
 # plot the decision tree
 def plot_decision_tree(model,df,target,X_train):
@@ -192,7 +202,7 @@ def plot_decision_tree(model,df,target,X_train):
 # dataset upload option
 st.sidebar.markdown("## Dataset Selection")
 dataset_upload = st.sidebar.file_uploader(label="Upload your own dataset",
-                         type="csv")
+                                          type="csv")
 
 # use uploaded dataset if user inputs one
 if dataset_upload is not None:
@@ -200,12 +210,14 @@ if dataset_upload is not None:
     target = st.sidebar.selectbox(label="What is the target variable?",
                                   options=dataset.columns,
                                   index=None)
-    
+
 # dataset demo option
-st.sidebar.markdown("#### No dataset? Use a demo")
-dataset_demo = st.sidebar.selectbox(label="Demo datasets",
-                                    options=["Breast Cancer", "Iris", "Wine"],
-                                    index=None)
+dataset_demo = None
+if dataset_upload is None:
+    st.sidebar.markdown("#### No dataset? Use a demo")
+    dataset_demo = st.sidebar.selectbox(label="Demo datasets",
+                                        options=["Breast Cancer", "Iris", "Wine"],
+                                        index=None)
 
 # use demo datasets if user chooses one
 if dataset_demo == "Breast Cancer":
@@ -223,7 +235,8 @@ st.sidebar.markdown("## Hyperparameter Selection")
 
 # select hyperparameter: criterion
 criterion = st.sidebar.selectbox(label="Criterion",
-                                 options=["Gini Index", "Entropy", "Log Loss"])
+                                options=["Gini Index", "Entropy", "Log Loss"],
+                                index=None)
 if criterion == "Gini Index":
     criterion = "gini"
 elif criterion == "Entropy":
@@ -233,59 +246,181 @@ elif criterion == "Log Loss":
 
 # select hyperparameter: max depth
 max_depth = st.sidebar.select_slider(label="Maximum depth of tree",
-                                     options=range(1, 21))
+                                    options=range(1, 11),
+                                    value=1)
 
 # select hyperparameter: min samples split
 min_samples_split = st.sidebar.select_slider(label="Minimum samples to split",
-                                             options=range(2,21,2))
+                                            options=range(2,11,2),
+                                            value=2)
 
 # select hyperparemeter: min samples leaf
 min_samples_leaf = st.sidebar.select_slider(label="Minimum samples for leaf",
-                                            options=range(1, 21))
+                                            options=range(1, 11),
+                                            value=1)
+
+# show best decision tree
+st.sidebar.markdown("## Best Decision Tree")
+
+# select scoring metric for grid search
+scoring_metric = st.sidebar.selectbox(label="Choose scoring metric",
+                                     options=["Accuracy", "F1 Score (for binary targets)",
+                                              "Weighted F1 Score", "Precision", "Recall"],
+                                              index=None)
+
+if scoring_metric == "Accuracy":
+    scoring_metric = "accuracy"
+elif scoring_metric == "F1 Score (for binary targets)":
+    scoring_metric = "f1"
+elif scoring_metric == "Weighted F1 Score":
+    scoring_metric = "f1_weighted"
+elif scoring_metric == "Precision":
+    scoring_metric = "precision"
+elif scoring_metric == "Recall":
+    scoring_metric = "recall"
+
+# select to look for best tree with grid search
+tree_finder = st.sidebar.toggle("Find the best decision tree for me")
+st.sidebar.markdown("**Note:** This may take a few seconds to run.")
+st.sidebar.caption("Changing the _Hyperparameter Selection_ buttons won't change the best decision tree.")
 
 # ------------------------------------
 # Main Page Structure
 # ------------------------------------
 
-if (dataset_upload or dataset_demo is not None) and target is not None:
+# execute if user has selected a dataset and target variable
+if (dataset_upload or dataset_demo is not None) and target is not None and criterion is not None:
 
     # preprocess and split df, train model
     processed_df, X, y = preprocess(dataset)
     X_train, X_test, y_train, y_test = split_data(X, y)
-    dt_model = train_decision_tree(X_train=X_train, y_train=y_train, criterion=criterion, max_depth=max_depth,
-                                   min_samples_split=min_samples_split, min_samples_leaf=min_samples_leaf)
-
-    # classification report
-    st.subheader("Classification Report")
-
-    # predict and evaluate model
-    y_pred = dt_model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
-    st.write(f"**Accuracy:** {accuracy:.2f}")
-
-    # display classification report
-    report_dict = classification_report(y_test, y_pred, output_dict=True)
-    report_df = pd.DataFrame(report_dict).T
-    st.dataframe(report_df)
-
-    # create two columns for side-by-side display
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.subheader("Confusion matrix")
-        cm = confusion_matrix(y_test, y_pred)
-        plot_confusion_matrix(cm)
     
-    with col2:
-        st.subheader("ROC and AUC plot")
-        plot_multiclass_roc(model=dt_model, y_train= y_train,X_test=X_test, y_test=y_test, target_classes=dataset[target].unique().astype('str'), target_names = dataset[target].unique().astype('str'))
+    # show user-selected decision tree if they don't choose to see the best one
+    if tree_finder is False:
 
-    # show decision tree
-    st.subheader("Decision Tree")
-    plot_decision_tree(model=dt_model, df=dataset, target=target,X_train=X_train)
+        # fit model
+        dt_model = train_decision_tree(X_train=X_train, y_train=y_train, criterion=criterion, max_depth=max_depth,
+                                    min_samples_split=min_samples_split, min_samples_leaf=min_samples_leaf)
 
+        # classification report
+        st.subheader("Classification Report")
+
+        # predict and evaluate model
+        y_pred = dt_model.predict(X_test)
+        accuracy = accuracy_score(y_test, y_pred)
+        st.write(f"**Accuracy:** {accuracy:.2f}")
+
+        # display classification report
+        report_dict = classification_report(y_test, y_pred, output_dict=True)
+        report_df = pd.DataFrame(report_dict).T
+        st.dataframe(report_df)
+
+        # create two columns for side-by-side display
+        col1, col2 = st.columns(2)
+
+        # show confusion matrix on column 1 
+        with col1:
+            st.subheader("Confusion matrix")
+            cm = confusion_matrix(y_test, y_pred)
+            plot_confusion_matrix(cm)
+        
+        # show ROC and AUC plot on column 2
+        with col2:
+            st.subheader("ROC and AUC plot")
+            plot_multiclass_roc(model=dt_model, y_train= y_train,X_test=X_test, y_test=y_test, target_classes=dataset[target].unique().astype('str'), target_names = dataset[target].unique().astype('str'))
+
+        # show decision tree
+        st.subheader("Decision Tree")
+        plot_decision_tree(model=dt_model, df=dataset, target=target,X_train=X_train)
+
+    # show best decision tree if user selects toggle
+    else:
+
+        # find best tree and fit model
+        y_pred, best_params, best_dtree = find_best_tree(X_train=X_train, y_train=y_train, X_test=X_test, scoring=scoring_metric)
+
+        # create two columns for side-by-side display
+        col1, col2 = st.columns(2)
+
+        # best parameters
+        with col1:
+            st.subheader("Best Parameters")
+            st.write(f"Using the scoring metric {scoring_metric}")
+            st.dataframe(best_params)
+
+        # classification report
+        with col2:
+            st.subheader("Classification Report")
+
+            # evaluate model
+            accuracy = accuracy_score(y_test, y_pred)
+            st.write(f"**Accuracy:** {accuracy:.2f}")
+
+            # display classification report
+            report_dict = classification_report(y_test, y_pred, output_dict=True)
+            report_df = pd.DataFrame(report_dict).T
+            st.dataframe(report_df)
+
+        # create new columns for side-by-side display so they're vertically aligned
+        col1, col2 = st.columns(2)
+
+        # show confusion matrix on column 1 
+        with col1:
+            st.subheader("Confusion matrix")
+            cm = confusion_matrix(y_test, y_pred)
+            plot_confusion_matrix(cm)
+        
+        # show ROC and AUC plot on column 2
+        with col2:
+            st.subheader("ROC and AUC plot")
+            plot_multiclass_roc(model=best_dtree, y_train= y_train,X_test=X_test, y_test=y_test, target_classes=dataset[target].unique().astype('str'), target_names = dataset[target].unique().astype('str'))
+
+        # show decision tree
+        st.subheader("Decision Tree")
+        plot_decision_tree(model=best_dtree, df=dataset, target=target,X_train=X_train)
+
+# prompt user to select a dataset
 elif dataset_upload is None and dataset_demo is None:
-    st.markdown("#### Please select a dataset to start.")
+    st.markdown("#### :primary[Please select a dataset to start.]")
 
+# prompt user to select a target variable for uploaded dataset
 elif (dataset_upload or dataset_demo is not None) and target is None:
-    st.markdown("#### Please select the target variable in your dataset. This should not be any random variable, but a specific variable with the labels that you want the decision tree to use for classification.")
+    st.markdown("#### :primary[Please select the target variable in your dataset. This should be a specific variable with the labels that you want the decision tree to use for classification.]")
+
+# prompt user to select a criterion for the decision tree
+elif criterion is None:
+    st.markdown("#### :primary[Please select a criterion for the decision tree.]")
+
+# create section for common questions
+st.subheader("Common Questions")
+
+# create columns for help buttons
+col1, col2 = st.columns(2)
+
+with col1:
+    with st.expander("How do decision trees work?"):
+        st.write("""Decision trees are supervised machine learning models that use labeled data for classification or regression. Here, we use them for **classification**.
+                 These models traverse down the tree by asking questions at each **node** and deciding which **branch** to go through according to the answer, until they arrive at
+                 a **leaf node**, where they assign the data point to a class.
+                 """)
+    with st.expander("What are hyperparameters?"):
+        st.write("""
+                 Hyperparameters are model settings chosen before the training process, and they determine how the model will learn and use the data.
+                 **Hyperparameter tuning** consists of testing different parameters to find the best model according to the desired metric.
+                 This application allows you to do this by manually changing the hyperparameters or by automatically finding the best decision tree.
+                 """)
+    with st.expander("How is the best decision tree determined?"):
+        st.write("""
+                Test
+                 - New line
+
+
+                """)
+    
+with col2:
+    with st.expander("What does each criterion mean?"):
+        st.write("")
+    with st.expander("What does each hyperparameter mean?"):
+        st.write("")
+    with st.expander("What do the scoring metrics mean?"):
+        st.write("")
