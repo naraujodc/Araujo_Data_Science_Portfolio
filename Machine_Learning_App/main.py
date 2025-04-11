@@ -100,7 +100,6 @@ def find_best_tree(X_train, y_train, X_test, scoring):
     y_pred = best_dtree.predict(X_test)
     return y_pred, best_params, best_dtree
 
-
 # plot confusion matrix
 def plot_confusion_matrix(cm):
     plt.figure(figsize=(6,4))
@@ -263,20 +262,17 @@ min_samples_leaf = st.sidebar.select_slider(label="Minimum samples for leaf",
 st.sidebar.markdown("## Best Decision Tree")
 
 # select scoring metric for grid search
-scoring_metric = st.sidebar.selectbox(label="Choose scoring metric",
-                                     options=["Accuracy", "F1 Score (for binary targets)",
-                                              "Weighted F1 Score", "Precision", "Recall"],
+scoring_choice = st.sidebar.selectbox(label="Choose scoring metric",
+                                     options=["Accuracy", "F1 Score", "Precision", "Recall"],
                                               index=None)
 
-if scoring_metric == "Accuracy":
+if scoring_choice == "Accuracy":
     scoring_metric = "accuracy"
-elif scoring_metric == "F1 Score (for binary targets)":
+elif scoring_choice == "F1 Score":
     scoring_metric = "f1"
-elif scoring_metric == "Weighted F1 Score":
-    scoring_metric = "f1_weighted"
-elif scoring_metric == "Precision":
+elif scoring_choice == "Precision":
     scoring_metric = "precision"
-elif scoring_metric == "Recall":
+elif scoring_choice == "Recall":
     scoring_metric = "recall"
 
 # select to look for best tree with grid search
@@ -327,11 +323,37 @@ if (dataset_upload or dataset_demo is not None) and target is not None and crite
         # show ROC and AUC plot on column 2
         with col2:
             st.subheader("ROC and AUC plot")
-            plot_multiclass_roc(model=dt_model, y_train= y_train,X_test=X_test, y_test=y_test, target_classes=dataset[target].unique().astype('str'), target_names = dataset[target].unique().astype('str'))
+            plot_multiclass_roc(model=dt_model, y_train= y_train,X_test=X_test, y_test=y_test,
+                                target_classes=dataset[target].unique().astype('str'), target_names = dataset[target].unique().astype('str'))
+                
+        # create two columns for side-by-side display
+        col1, col2 = st.columns(2)
+
+        # add explanation for confusion matrix
+        with col1:
+            with st.popover("What does this mean?"):
+                st.write("""
+                         A confusion matrix is a table that helps us visualize the four outcomes of classifications a model can make:
+                         false positives, false negatives, true positives, and true negatives.
+                         The rows indicate the true labels of the observations, and the columns indicate the predicted labels.
+                         """)
+                
+        # add explanation for ROC and AUC
+        with col2:
+            with st.popover("What does this mean?"):
+                st.write("""
+                         The ROC Curve shows how much sensitivity we gain and how much specificity we lose by lowering the threshold of the probability
+                         of belonging to a class required to classify an observation. Sensitivity is the true positive rate, and specificity is
+                         the true negative rate. After we have the ROC curve, we calculate the AUC (the area underneath it).
+                         A perfect model would have an AUC of 1, and an AUC of 0.5 would be as good as random guessing for binary classification.
+                         """)
 
         # show decision tree
         st.subheader("Decision Tree")
         plot_decision_tree(model=dt_model, df=dataset, target=target,X_train=X_train)
+
+        # create space before common questions section
+        st.markdown("#")
 
     # show best decision tree if user selects toggle
     else:
@@ -345,7 +367,7 @@ if (dataset_upload or dataset_demo is not None) and target is not None and crite
         # best parameters
         with col1:
             st.subheader("Best Parameters")
-            st.write(f"Using the scoring metric {scoring_metric}")
+            st.write(f"Using the scoring metric {scoring_choice}")
             st.dataframe(best_params)
 
         # classification report
@@ -374,10 +396,35 @@ if (dataset_upload or dataset_demo is not None) and target is not None and crite
         with col2:
             st.subheader("ROC and AUC plot")
             plot_multiclass_roc(model=best_dtree, y_train= y_train,X_test=X_test, y_test=y_test, target_classes=dataset[target].unique().astype('str'), target_names = dataset[target].unique().astype('str'))
+       
+        # create two columns for side-by-side display
+        col1, col2 = st.columns(2)
 
+        # add explanation for confusion matrix
+        with col1:
+            with st.popover("What does this mean?"):
+                st.write("""
+                         A confusion matrix is a table that helps us visualize the four outcomes of classifications a model can make:
+                         false positives, false negatives, true positives, and true negatives.
+                         The rows indicate the true labels of the observations, and the columns indicate the predicted labels.
+                         """)
+                
+        # add explanation for ROC and AUC
+        with col2:
+            with st.popover("What does this mean?"):
+                st.write("""
+                         The ROC Curve shows how much sensitivity we gain and how much specificity we lose by lowering the threshold of the probability
+                         of belonging to a class required to classify an observation. Sensitivity is the true positive rate, and specificity is
+                         the true negative rate. After we have the ROC curve, we calculate the AUC (the area underneath it).
+                         A perfect model would have an AUC of 1, and an AUC of 0.5 would be as good as random guessing for binary classification.
+                         """)
+     
         # show decision tree
         st.subheader("Decision Tree")
         plot_decision_tree(model=best_dtree, df=dataset, target=target,X_train=X_train)
+
+        # create space before common questions section
+        st.markdown("#")
 
 # prompt user to select a dataset
 elif dataset_upload is None and dataset_demo is None:
@@ -411,16 +458,33 @@ with col1:
                  """)
     with st.expander("How is the best decision tree determined?"):
         st.write("""
-                Test
-                 - New line
-
-
-                """)
+                 This app uses a method called **Grid Search Cross Validation** to find the combination of hyperparameters that yields the best decision tree according to your chosen scoring metric.
+                 - **Grid search** allows us to test different combinations of hyperparameter values to see which one works the best.
+                 - **Cross validation** splits the dataset into random groups (here, we use 5), holds one group as the test, and trains the model on the other ones.
+                 This is repeated until each group is used as the test, and then the average performance is considered as the model performance for those parameters.
+                 """)
     
 with col2:
     with st.expander("What does each criterion mean?"):
-        st.write("")
+        st.write("""
+                 The criterion is the metric used to choose the best split (i.e. the best question to ask) at each node.
+                 - **Gini Index:** A measure of the impurity of a dataset and corresponds to the probability of picking two elements of the same class from a set.
+                 Usually the preferred metric for decision trees.
+                 - **Entropy:** A measure of disorder based on information gain theory.
+                 It evaluates the probability of picking the sequence corresponding to the initial ordered sequence of a set.
+                 - **Log-Loss:** A measure of how close the predicted probability of an observation belonging to a class is to its actual class.
+                 """)
     with st.expander("What does each hyperparameter mean?"):
-        st.write("")
+        st.write("""
+                 - **Maximum depth of tree:** The maximum amount of times nodes can be expanded into new branches.
+                 - **Minimum samples to split:** The minimum number of samples that must be present in a node for it to split.
+                 - **Minimum samples for leaf:** The minimum number of samples required for a node to be a leaf node (where observations are assigned to a class).
+                 """)
     with st.expander("What do the scoring metrics mean?"):
-        st.write("")
+        st.write("""
+                 - **Accuracy:** The proportion of the data points that a model has classified with the correct label, i.e. the percentage of times the model makes a correct prediction.
+                 - **F1 Score:** A harmonic mean of precision and recall.
+                 - **Precision:** The proportion of data points classified as positive that were actually true positives, so TP / (TP + FP). For multiclass datasets, the precision for each class is averaged.
+                 - **Recall:** The proportion of correct predictions out of the positive labels, i.e. the number of true positives divided by the total number of positives (TP / (TP + FN)).
+                 For multiclass datasets, the recall for each class is averaged.
+                 """)
