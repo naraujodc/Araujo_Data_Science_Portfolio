@@ -6,6 +6,7 @@
 ![Pandas](https://img.shields.io/badge/pandas%20-%23150458.svg?&style=flat&logo=pandas&logoColor=white)&nbsp;
 ![Seaborn](https://img.shields.io/badge/Seaborn-79b6bc)&nbsp;
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-1e3f5a)&nbsp;
+![Graphviz](https://img.shields.io/badge/graphviz-5d81a3)&nbsp;
 
 ## Table of Contents
 [1. Project Overview (With Visual Examples)](#project-overview-with-visual-examples)\
@@ -36,7 +37,7 @@ This project showcases my knowledge of this powerful machine learning model and 
 Many computations happen in the background to ensure that the users can navigate the app smoothly and without error.
 I highly recommend checking the code in this repository to see some of the strategies I used to guarantee that the code runs without errors independently of the order in which users interact with the buttons.
 <p align="center">
-<img src="MLStreamlitApp/images/decision-tree-app-initial-page.png">
+<img src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/MLStreamlitApp/images/decision-tree-app-initial-page.png">
 Screenshot of the initial page when a user opens the app
 </p>
 
