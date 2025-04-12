@@ -352,79 +352,137 @@ if (dataset_upload or dataset_demo is not None) and target is not None and crite
         st.subheader("Decision Tree")
         plot_decision_tree(model=dt_model, df=dataset, target=target,X_train=X_train)
 
+        # option to view dataset information
+        st.markdown("####")
+        with st.expander("**View Dataset Information**"):
+            if dataset_demo == "Breast Cancer":
+                st.write("""
+                         **Breast cancer wisconsin (diagnostic) dataset:** This is one of the toy datasets from the Python package scikit-learn.
+                         It is used to predict whether a tumor is malignant or benign according to 30 predictive variables.
+                         """)
+            elif dataset_demo == "Iris":
+                st.write("""
+                        **Iris plants dataset:** This is one of the toy datasets from the Python package scikit-learn.
+                        It is used to predict whether an Iris plant is from the species Setosa, Versicolour, or Virginica according to 4 predictive variables.
+                        """)
+            elif dataset_demo == "Wine":
+                st.write("""
+                        **Wine recognition dataset:** This is one of the toy datasets from the Python package scikit-learn.
+                         It is used to predict whether a wine was manufactured by cultivator 0, 1, or 2 in Italy using 13 predictive variables.
+                         """)
+            col1, col2 = st.columns(2)
+            with col1:
+                st.write("#### First 5 Rows of the Dataset")
+                st.dataframe(dataset.head())
+            with col2:
+                st.write("#### Statistical Summary")
+                st.dataframe(dataset.describe())
+
         # create space before common questions section
-        st.markdown("#")
+        st.markdown("####")
 
     # show best decision tree if user selects toggle
     else:
-
-        # find best tree and fit model
-        y_pred, best_params, best_dtree = find_best_tree(X_train=X_train, y_train=y_train, X_test=X_test, scoring=scoring_metric)
-
-        # create two columns for side-by-side display
-        col1, col2 = st.columns(2)
-
-        # best parameters
-        with col1:
-            st.subheader("Best Parameters")
-            st.write(f"Using the scoring metric {scoring_choice}")
-            st.dataframe(best_params)
-
-        # classification report
-        with col2:
-            st.subheader("Classification Report")
-
-            # evaluate model
-            accuracy = accuracy_score(y_test, y_pred)
-            st.write(f"**Accuracy:** {accuracy:.2f}")
-
-            # display classification report
-            report_dict = classification_report(y_test, y_pred, output_dict=True)
-            report_df = pd.DataFrame(report_dict).T
-            st.dataframe(report_df)
-
-        # create new columns for side-by-side display so they're vertically aligned
-        col1, col2 = st.columns(2)
-
-        # show confusion matrix on column 1 
-        with col1:
-            st.subheader("Confusion matrix")
-            cm = confusion_matrix(y_test, y_pred)
-            plot_confusion_matrix(cm)
         
-        # show ROC and AUC plot on column 2
-        with col2:
-            st.subheader("ROC and AUC plot")
-            plot_multiclass_roc(model=best_dtree, y_train= y_train,X_test=X_test, y_test=y_test, target_classes=dataset[target].unique().astype('str'), target_names = dataset[target].unique().astype('str'))
-       
-        # create two columns for side-by-side display
-        col1, col2 = st.columns(2)
+        # ensure scoring metric is selected
+        if scoring_choice is None:
+            st.markdown("#### :primary[Please select a scoring metric first.]")
 
-        # add explanation for confusion matrix
-        with col1:
-            with st.popover("What does this mean?"):
-                st.write("""
-                         A confusion matrix is a table that helps us visualize the four outcomes of classifications a model can make:
-                         false positives, false negatives, true positives, and true negatives.
-                         The rows indicate the true labels of the observations, and the columns indicate the predicted labels.
-                         """)
-                
-        # add explanation for ROC and AUC
-        with col2:
-            with st.popover("What does this mean?"):
-                st.write("""
-                         The ROC Curve shows how much sensitivity we gain and how much specificity we lose by lowering the threshold of the probability
-                         of belonging to a class required to classify an observation. Sensitivity is the true positive rate, and specificity is
-                         the true negative rate. After we have the ROC curve, we calculate the AUC (the area underneath it).
-                         A perfect model would have an AUC of 1, and an AUC of 0.5 would be as good as random guessing for binary classification.
-                         """)
-     
-        # show decision tree
-        st.subheader("Decision Tree")
-        plot_decision_tree(model=best_dtree, df=dataset, target=target,X_train=X_train)
+        else:
+
+            # find best tree and fit model
+            y_pred, best_params, best_dtree = find_best_tree(X_train=X_train, y_train=y_train, X_test=X_test, scoring=scoring_metric)
+
+            # create two columns for side-by-side display
+            col1, col2 = st.columns(2)
+
+            # best parameters
+            with col1:
+                st.subheader("Best Parameters")
+                st.write(f"Using the scoring metric {scoring_choice}")
+                st.dataframe(best_params)
+
+            # classification report
+            with col2:
+                st.subheader("Classification Report")
+
+                # evaluate model
+                accuracy = accuracy_score(y_test, y_pred)
+                st.write(f"**Accuracy:** {accuracy:.2f}")
+
+                # display classification report
+                report_dict = classification_report(y_test, y_pred, output_dict=True)
+                report_df = pd.DataFrame(report_dict).T
+                st.dataframe(report_df)
+
+            # create new columns for side-by-side display so they're vertically aligned
+            col1, col2 = st.columns(2)
+
+            # show confusion matrix on column 1 
+            with col1:
+                st.subheader("Confusion matrix")
+                cm = confusion_matrix(y_test, y_pred)
+                plot_confusion_matrix(cm)
+            
+            # show ROC and AUC plot on column 2
+            with col2:
+                st.subheader("ROC and AUC plot")
+                plot_multiclass_roc(model=best_dtree, y_train= y_train,X_test=X_test, y_test=y_test, target_classes=dataset[target].unique().astype('str'), target_names = dataset[target].unique().astype('str'))
+        
+            # create two columns for side-by-side display
+            col1, col2 = st.columns(2)
+
+            # add explanation for confusion matrix
+            with col1:
+                with st.popover("What does this mean?"):
+                    st.write("""
+                            A confusion matrix is a table that helps us visualize the four outcomes of classifications a model can make:
+                            false positives, false negatives, true positives, and true negatives.
+                            The rows indicate the true labels of the observations, and the columns indicate the predicted labels.
+                            """)
+                    
+            # add explanation for ROC and AUC
+            with col2:
+                with st.popover("What does this mean?"):
+                    st.write("""
+                            The ROC Curve shows how much sensitivity we gain and how much specificity we lose by lowering the threshold of the probability
+                            of belonging to a class required to classify an observation. Sensitivity is the true positive rate, and specificity is
+                            the true negative rate. After we have the ROC curve, we calculate the AUC (the area underneath it).
+                            A perfect model would have an AUC of 1, and an AUC of 0.5 would be as good as random guessing for binary classification.
+                            """)
+        
+            # show decision tree
+            st.subheader("Decision Tree")
+            plot_decision_tree(model=best_dtree, df=dataset, target=target,X_train=X_train)
+
+            # option to view dataset information
+            st.markdown("####")
+            with st.expander("**View Dataset Information**"):
+                if dataset_demo == "Breast Cancer":
+                    st.write("""
+                            **Breast cancer wisconsin (diagnostic) dataset:** This is one of the toy datasets from the Python package scikit-learn.
+                            It is used to predict whether a tumor is malignant or benign according to 30 predictive variables.
+                            """)
+                elif dataset_demo == "Iris":
+                    st.write("""
+                            **Iris plants dataset:** This is one of the toy datasets from the Python package scikit-learn.
+                            It is used to predict whether an Iris plant is from the species Setosa, Versicolour, or Virginica according to 4 predictive variables.
+                            """)
+                elif dataset_demo == "Wine":
+                    st.write("""
+                            **Wine recognition dataset:** This is one of the toy datasets from the Python package scikit-learn.
+                            It is used to predict whether a wine was manufactured by cultivator 0, 1, or 2 in Italy using 13 predictive variables.
+                            """)
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.write("#### First 5 Rows of the Dataset")
+                    st.dataframe(dataset.head())
+                with col2:
+                    st.write("#### Statistical Summary")
+                    st.dataframe(dataset.describe())
 
         # create space before common questions section
-        st.markdown("#")
+        st.markdown("####")
 
 # prompt user to select a dataset
 elif dataset_upload is None and dataset_demo is None:
