@@ -6,6 +6,9 @@ This portfolio showcases my academic and personal Data Science projects, as well
   - Minor in **Data Science**
   - Glynn Family Honors Program
   - Highly quantitative coursework with a focus in dynamical modeling, research methods, and data analysis.
+ 
+## Achievements
+- **Best Insight Award** - American Statistical Association 2025 DataFest, hosted by the University of Notre Dame
 
 ## Skills
 - **Methodologies:** Statistics, Dynamical Models, Machine Learning, Deep Learning, Natural Language Processing, Experimental Design
