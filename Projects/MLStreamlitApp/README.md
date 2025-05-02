@@ -105,6 +105,8 @@ If you want to download and run the code yourself, follow the instructions below
 ```
 git clone https://github.com/naraujodc/Araujo_Data_Science_Portfolio
 
+cd Projects
+
 cd MLStreamlitApp
 ```
 3. In a new environment, install the dependencies.
