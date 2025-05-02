@@ -34,7 +34,7 @@ This portfolio showcases my academic and personal Data Science projects, as well
 ![MatLab](https://img.shields.io/badge/MatLab-ec5500)&nbsp;
 
 ## Projects
-<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/decision-tree-app-cover.png"> **[Decision Tree Tuning App](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Projects/MLStreamlitApp)**
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/decision-tree-app-cover.png"> **[Decision Tree Tuning App](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/MLStreamlitApp)**
 
 This is an interactive app that invites the user to explore the effects of hyperparameters on decision tree machine learning models. This demonstrates my ability to interpret and tune hyperparameters to find the best ML model under different contexts and to develop interactive apps.
 
@@ -48,7 +48,7 @@ This is an interactive app that invites the user to explore the effects of hyper
 ![Graphviz](https://img.shields.io/badge/graphviz-5d81a3)&nbsp;
 
 #
-<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/tidy_data_cover.png"> **[Tidy Data Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Projects/TidyData-Project)**
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/tidy_data_cover.png"> **[Tidy Data Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/TidyData-Project)**
 
 In this project I apply the principles of tidy data to a messy dataset and demonstrate how tidy data can be easily used for data analysis, manipulation, and visualization. This showcases my ability to handle messy data, create standard data structures, and use them for EDA.
 
@@ -59,7 +59,7 @@ In this project I apply the principles of tidy data to a messy dataset and demon
 ![highlight_text](https://img.shields.io/badge/highlight_text-be5103)&nbsp;
 
 #
-<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/lotka-volterra_cover.png"> **[Lotka-Volterra Predator-Prey Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Projects/Lotka_Volterra_Predator_Prey_Project)**
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/lotka-volterra_cover.png"> **[Lotka-Volterra Predator-Prey Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Lotka_Volterra_Predator_Prey_Project)**
 
 The purpose of this project is to explore the famous Lotka-Volterra predator-prey model and its applications to the analysis of population dynamics using R. This showcases my ability to work with dynamical models, use them for predictions, and solve ordinary differential equations.
 
@@ -70,7 +70,7 @@ The purpose of this project is to explore the famous Lotka-Volterra predator-pre
 
 ## Micro Projects
 ### Web Apps
-- [Netflix Listings Navigator](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Projects/basic_streamlit_app): This web app allows users to navigate through a dataframe of Netflix movies and TV shows applying different filters. This demonstrates my ability to create interactive web apps and parse through data. **Language:** Python (Streamlit, Pandas)&nbsp;
+- [Netflix Listings Navigator](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/basic_streamlit_app): This web app allows users to navigate through a dataframe of Netflix movies and TV shows applying different filters. This demonstrates my ability to create interactive web apps and parse through data. **Language:** Python (Streamlit, Pandas)&nbsp;
 
 ## Certificates
 - [Creating Web Apps with Streamlit](https://github.com/naraujodc/ARAUJO_Data_Science_Portfolio/blob/54671b0a720352d2f984af10a010bcaa5b1767c2/Certificates/Creating%20Web%20Apps%20with%20Streamlit.pdf) *(Asimov Academy)*
