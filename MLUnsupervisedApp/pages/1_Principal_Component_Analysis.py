@@ -2,7 +2,10 @@
 import streamlit as st
 import pandas as pd
 
+from sklearn.preprocessing import StandardScaler
+from Unsupervised_ML import *
 from sklearn.datasets import load_breast_cancer, load_iris, load_wine
+
 
 # -------------------------
 # PAGE CONFIGURATIONS
@@ -17,19 +20,17 @@ st.set_page_config(
 # INITIAL PAGE STRUCTURE
 # -------------------------
 
+st.title(":material/graph_3: Principal Component Analysis")
+
+
 # -------------------------
 # HELPER FUNCTIONS
 # -------------------------
-# turn sklearn toy datasets into pandas dataframes
-def toy_to_df(load_function):
-    bunch = load_function()
-    df = pd.DataFrame(bunch.data, columns=bunch.feature_names)
-    df["target"] = bunch.target
-    return df
 
 # -------------------------
 # SIDEBAR STRUCTURE
 # -------------------------
+
 # dataset upload option
 st.sidebar.markdown("## Dataset Selection")
 dataset_upload = st.sidebar.file_uploader(label="Upload your own dataset",
@@ -38,9 +39,13 @@ dataset_upload = st.sidebar.file_uploader(label="Upload your own dataset",
 # use uploaded dataset if user inputs one
 if dataset_upload is not None:
     dataset = pd.read_csv(dataset_upload)
-    target = st.sidebar.selectbox(label="What is the target variable?",
-                                  options=dataset.columns,
-                                  index=None)
+    is_labeled = st.sidebar.checkbox(label="Is the dataset labeled?")
+    if is_labeled == True:
+        target = st.sidebar.selectbox(label="What is the target variable?",
+                                      options=dataset.columns,
+                                      index=None)
+    else:
+        target = None
 
 # dataset demo option
 dataset_demo = None
@@ -64,3 +69,5 @@ elif dataset_demo == "Wine":
 # -------------------------
 # MAIN PAGE STRUCTURE
 # -------------------------
+
+#processed_df, X, y = data_preprocessing(df=dataset, target=target)
