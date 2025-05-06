@@ -27,9 +27,10 @@ st.title(":material/graph_3: Principal Component Analysis")
 st.write("""
          Principal Component Analysis (PCA) is an unsupervised machine learning technique used for **dimensionality reduction**.
          In a nutshell, PCA finds the **principal components**, which are linear combinations of the original variables, that capture the most **variance** in the data.
+         
          In this page, you can:
          - Upload your own dataset (labeled or unlabeled) or choose one of the demo datasets;
-         - Choose the number of principal components you want your dataset to be reduce to;
+         - Choose the number of principal components you want your dataset to be reduced to;
          - Visualize the scatterplot and biplot for two PCs, and the scree plot for any number of PCs.
          """)
 
@@ -162,9 +163,9 @@ def pca_biplot(X_std, X_pca, df, target):
     # plot the loadings as arrows
     for i, feature in enumerate(feature_names):
         plt.arrow(0, 0, scaling_factor * loadings[i, 0], scaling_factor * loadings[i, 1],
-                color='r', width=0.02, head_width=0.1)
+                color='crimson', width=0.02, head_width=0.1)
         plt.text(scaling_factor * loadings[i, 0] * 1.1, scaling_factor * loadings[i, 1] * 1.1,
-                feature, color='darkred', ha='center', va='center')
+                feature, color='crimson', ha='center', va='center')
     plt.xlabel('Principal Component 1')
     plt.ylabel('Principal Component 2')
     plt.title('Biplot: PCA Scores and Loadings')
