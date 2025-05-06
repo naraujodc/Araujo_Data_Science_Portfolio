@@ -64,9 +64,9 @@ def data_preprocessing(df, target):
     return df, X_std, y
 
 # principal component analysis
-def data_pca(X_std):
-    pca = PCA(n_components=2)
+def data_pca(X_std, n_components):
+    pca = PCA(n_components=n_components)
     X_pca = pca.fit_transform(X_std)
     explained_variance = pca.explained_variance_ratio_
     exp_variance_cumsum = np.cumsum(explained_variance)
-    return(X_pca, exp_variance_cumsum)
+    return X_pca, exp_variance_cumsum
