@@ -27,7 +27,7 @@ st.write("""
          
          In this page, you can:
          - Upload your own dataset (labeled or unlabeled) or choose one of the demo datasets;
-         - Choose the number of principal components you want your dataset to be reduced to;
+         - Choose the number of principal components (PCs) you want your dataset to be reduced to;
          - Visualize the scatterplot and biplot for two PCs, and the scree plot for any number of PCs.
          """)
 
