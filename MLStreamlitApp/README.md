@@ -43,7 +43,7 @@ Screenshot of the initial page when a user opens the app
 
 #### Data Preprocessing
 To make sure each dataset was ready for machine learning, I created a function to preprocess any user-uploaded datasets.
-Since decision trees can naturally handle missign values, I decided not to delete or input them. This ensures I would not delete a lot of data from datasets with many missing values.
+Since decision trees can naturally handle missing values, I decided not to delete or input them. This ensures I would not delete a lot of data from datasets with many missing values.
 I had to encode categorical variables in order to use `scikit-learn`'s `DecisionTreeClassifier`. In addition, I separated the feature and target variables according to the target variable indicated by the user.
 ```
 def preprocess(df):
@@ -105,8 +105,6 @@ If you want to download and run the code yourself, follow the instructions below
 ```
 git clone https://github.com/naraujodc/Araujo_Data_Science_Portfolio
 
-cd Projects
-
 cd MLStreamlitApp
 ```
 3. In a new environment, install the dependencies.
@@ -138,4 +136,4 @@ The demo datasets provided in the app are [toy datasets](https://scikit-learn.or
 - [Streamlit Documentation](https://docs.streamlit.io/)
 - [Scikit-learn Documentation](https://scikit-learn.org/stable/)
 - [Stack Overflow](https://stackoverflow.com/questions)
-- [Gemini](https://gemini.google.com/app) (Used for assistance with the `plot_multiclass_roc` fucntion)
+- [Gemini](https://gemini.google.com/app) (Used for assistance with the `plot_multiclass_roc` function)
