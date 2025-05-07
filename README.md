@@ -1,5 +1,6 @@
 # Data Science Portfolio
 This portfolio showcases my academic and personal Data Science projects, as well as my skills, certificates, and achievements.
+I am constantly updating it.
 
 ## Education
 - **BS, Neuroscience and Behavior** | University of Notre Dame *(2026)*
@@ -19,6 +20,7 @@ This portfolio showcases my academic and personal Data Science projects, as well
 ![Python](https://img.shields.io/badge/-Python-ffe873?style=flat&logo=python)&nbsp;
 ![Streamlit](https://img.shields.io/badge/Streamlit-ececec?style=flat&logo=streamlit)&nbsp;
 ![Scikitlearn](https://img.shields.io/badge/scikit_learn-101e27?logo=scikitlearn)&nbsp;
+![SciPy](https://img.shields.io/badge/SciPy-575d63?logo=scipy)&nbsp;
 ![NumPy](https://img.shields.io/badge/numpy%20-%23013243.svg?&style=flat&logo=numpy&logoColor=white)&nbsp;
 ![Pandas](https://img.shields.io/badge/pandas%20-%23150458.svg?&style=flat&logo=pandas&logoColor=white)&nbsp;
 ![NLTK](https://img.shields.io/badge/NLTK-339933?logo=python&logoColor=white)&nbsp;
@@ -34,6 +36,20 @@ This portfolio showcases my academic and personal Data Science projects, as well
 ![MatLab](https://img.shields.io/badge/MatLab-ec5500)&nbsp;
 
 ## Projects
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/uml-app-cover.png"> **[Unsupervised Machine Learning Explorer App](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/MLUnsupervisedApp)**
+
+This is an interactive app that invites the user to explore three different unsupervised machine learning methods: Principal Component Analysis, K-Means Clustering, and Hierarchical Clustering. It demonstrates my abilities to understand, tune, apply, and present unsupervised ML models.
+
+![Python](https://img.shields.io/badge/-Python-ffe873?style=flat&logo=python)&nbsp;
+![Streamlit](https://img.shields.io/badge/Streamlit-ececec?style=flat&logo=streamlit)&nbsp;
+![Scikitlearn](https://img.shields.io/badge/scikit_learn-101e27?logo=scikitlearn)&nbsp;
+![SciPy](https://img.shields.io/badge/SciPy-575d63?logo=scipy)&nbsp;
+![NumPy](https://img.shields.io/badge/numpy%20-%23013243.svg?&style=flat&logo=numpy&logoColor=white)&nbsp;
+![Pandas](https://img.shields.io/badge/pandas%20-%23150458.svg?&style=flat&logo=pandas&logoColor=white)&nbsp;
+![Seaborn](https://img.shields.io/badge/Seaborn-79b6bc)&nbsp;
+![Matplotlib](https://img.shields.io/badge/Matplotlib-1e3f5a)&nbsp;
+
+#
 <img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/decision-tree-app-cover.png"> **[Decision Tree Tuning App](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/MLStreamlitApp)**
 
 This is an interactive app that invites the user to explore the effects of hyperparameters on decision tree machine learning models. This demonstrates my ability to interpret and tune hyperparameters to find the best ML model under different contexts and to develop interactive apps.
