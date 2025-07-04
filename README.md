@@ -12,8 +12,8 @@ I am constantly updating it.
 - **Best Insight Award** - American Statistical Association 2025 DataFest, hosted by the University of Notre Dame
 
 ## Skills
-- **Methodologies:** Statistics, Dynamical Models, Machine Learning, Deep Learning, Natural Language Processing, Experimental Design
-- **Languages:** Python (Pandas, NumPy, Matplotlib, Seaborn, NLTK, Streamlit, Matplotlib, Seaborn, Scikit learn), R (tidyverse, tidyr, ggplot2)
+- **Methodologies:** Machine Learning, API Integration, Natural Language Processing, Experimental Design, Forecasting, Data Wrangling, Prompt Engineering, Databases, Statistics, Probability, Calculus, Linear Algebra, Dynamic Systems
+- **Languages:** Python (Pandas, NumPy, Matplotlib, Seaborn, NLTK, Streamlit, Matplotlib, Seaborn, Scikit learn), R (tidyverse, ggplot2, rstatix, car), SQL (PostgreSQL, pgAdmin)
 - **Tools:** MS Excel, SPSS, Prism, FIJI, Tableau
 
 ![RStudio](https://img.shields.io/badge/RStudio-1f65cc?style=flat&logo=rstudioide&logoColor=%2375AADB)&nbsp;
@@ -34,6 +34,8 @@ I am constantly updating it.
 ![MS Excel](https://img.shields.io/badge/MS_Excel-1D6F42)&nbsp;
 ![Tableau](https://img.shields.io/badge/Tableau-0070BA)&nbsp;
 ![MatLab](https://img.shields.io/badge/MatLab-ec5500)&nbsp;
+![SQL](https://img.shields.io/badge/SQL-%235294E2?logoColor=%23FFFFFF)&nbsp;
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%234169E1?logo=postgresql&logoColor=%23FFFFFF)&nbsp;
 
 ## Projects
 <img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/uml-app-cover.png"> **[Unsupervised Machine Learning Explorer App](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/MLUnsupervisedApp)**
@@ -89,4 +91,5 @@ The purpose of this project is to explore the famous Lotka-Volterra predator-pre
 - [Netflix Listings Navigator](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/basic_streamlit_app): This web app allows users to navigate through a dataframe of Netflix movies and TV shows applying different filters. This demonstrates my ability to create interactive web apps and parse through data. **Language:** Python (Streamlit, Pandas)&nbsp;
 
 ## Certificates
+- [Statistics for Data Science and Business Analytics](https://www.udemy.com/certificate/UC-544f1e7e-603f-4236-b88b-ae201678401c/) *(Udemy)*
 - [Creating Web Apps with Streamlit](https://github.com/naraujodc/ARAUJO_Data_Science_Portfolio/blob/54671b0a720352d2f984af10a010bcaa5b1767c2/Certificates/Creating%20Web%20Apps%20with%20Streamlit.pdf) *(Asimov Academy)*
