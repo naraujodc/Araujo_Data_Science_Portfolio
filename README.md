@@ -52,7 +52,7 @@ This is an interactive app that invites the user to explore three different unsu
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-1e3f5a)&nbsp;
 
 #
-<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/decision-tree-app-cover.png"> **[Decision Tree Tuning App](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/MLStreamlitApp)**
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/decision-tree-app-cover.png"> **[Decision Tree Tuning App](https://github.com/naraujodc/Decision_Tree_App/tree/main)**
 
 This is an interactive app that invites the user to explore the effects of hyperparameters on decision tree machine learning models. This demonstrates my ability to interpret and tune hyperparameters to find the best ML model under different contexts and to develop interactive apps.
 
