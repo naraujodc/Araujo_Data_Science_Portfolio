@@ -12,7 +12,7 @@ I am constantly updating it.
 - **Best Insight Award** - American Statistical Association 2025 DataFest, hosted by the University of Notre Dame
 
 ## Skills
-- **Methodologies:** Machine Learning, API Integration, Natural Language Processing, Experimental Design, Forecasting, Data Wrangling, Prompt Engineering, Databases, Statistics, Probability, Calculus, Linear Algebra, Dynamic Systems
+- **Methodologies:** Machine Learning, API Integration, Natural Language Processing, Experimental Design, Forecasting, Data Wrangling, Prompt Engineering, Databases, Statistics, Probability, Calculus, Linear Algebra, Differential Equations, Dynamic Systems
 - **Languages:** Python (Pandas, NumPy, Matplotlib, Seaborn, NLTK, Streamlit, Matplotlib, Seaborn, Scikit learn), R (tidyverse, ggplot2, rstatix, car), SQL (PostgreSQL, pgAdmin)
 - **Tools:** MS Excel, SPSS, Prism, FIJI, Tableau
 
@@ -66,7 +66,7 @@ This is an interactive app that invites the user to explore the effects of hyper
 ![Graphviz](https://img.shields.io/badge/graphviz-5d81a3)&nbsp;
 
 #
-<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/tidy_data_cover.png"> **[Tidy Data Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/TidyData-Project)**
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/tidy_data_cover.png"> **[Tidy Data Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Projects/TidyData-Project)**
 
 In this project I apply the principles of tidy data to a messy dataset and demonstrate how tidy data can be easily used for data analysis, manipulation, and visualization. This showcases my ability to handle messy data, create standard data structures, and use them for EDA.
 
@@ -77,7 +77,7 @@ In this project I apply the principles of tidy data to a messy dataset and demon
 ![highlight_text](https://img.shields.io/badge/highlight_text-be5103)&nbsp;
 
 #
-<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/lotka-volterra_cover.png"> **[Lotka-Volterra Predator-Prey Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Lotka_Volterra_Predator_Prey_Project)**
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/lotka-volterra_cover.png"> **[Lotka-Volterra Predator-Prey Project](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Projects/Lotka_Volterra_Predator_Prey_Project)**
 
 The purpose of this project is to explore the famous Lotka-Volterra predator-prey model and its applications to the analysis of population dynamics using R. This showcases my ability to work with dynamical models, use them for predictions, and solve ordinary differential equations.
 
@@ -88,7 +88,7 @@ The purpose of this project is to explore the famous Lotka-Volterra predator-pre
 
 ## Micro Projects
 ### Web Apps
-- [Netflix Listings Navigator](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/basic_streamlit_app): This web app allows users to navigate through a dataframe of Netflix movies and TV shows applying different filters. This demonstrates my ability to create interactive web apps and parse through data. **Language:** Python (Streamlit, Pandas)&nbsp;
+- [Netflix Listings Navigator](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Projects/basic_streamlit_app): This web app allows users to navigate through a dataframe of Netflix movies and TV shows applying different filters. This demonstrates my ability to create interactive web apps and parse through data. **Language:** Python (Streamlit, Pandas)&nbsp;
 
 ## Certificates
 - [Statistics for Data Science and Business Analytics](https://www.udemy.com/certificate/UC-544f1e7e-603f-4236-b88b-ae201678401c/) *(Udemy)*
