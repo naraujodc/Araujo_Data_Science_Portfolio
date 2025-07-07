@@ -91,5 +91,6 @@ The purpose of this project is to explore the famous Lotka-Volterra predator-pre
 - [Netflix Listings Navigator](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/Projects/basic_streamlit_app): This web app allows users to navigate through a dataframe of Netflix movies and TV shows applying different filters. This demonstrates my ability to create interactive web apps and parse through data. **Language:** Python (Streamlit, Pandas)&nbsp;
 
 ## Certificates
+- [Introduction to Time Series Analysis and Forecasting in R](https://www.udemy.com/certificate/UC-307692ee-9db5-4a29-b1bb-998449903712/) *(Udemy)*
 - [Statistics for Data Science and Business Analytics](https://www.udemy.com/certificate/UC-544f1e7e-603f-4236-b88b-ae201678401c/) *(Udemy)*
 - [Creating Web Apps with Streamlit](https://github.com/naraujodc/ARAUJO_Data_Science_Portfolio/blob/54671b0a720352d2f984af10a010bcaa5b1767c2/Certificates/Creating%20Web%20Apps%20with%20Streamlit.pdf) *(Asimov Academy)*
