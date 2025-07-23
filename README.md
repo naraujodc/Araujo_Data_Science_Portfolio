@@ -10,10 +10,12 @@ I am constantly updating it.
  
 ## Achievements
 - **Best Insight Award** - American Statistical Association 2025 DataFest, hosted by the University of Notre Dame
+- **Naughton Fellowship** - The Naughton Foundation & University of Notre Dame
+- **Nu Rho Psi** - National Honors Society in Neuroscience Lifetime Member
 
 ## Skills
 - **Methodologies:** Machine Learning, API Integration, Natural Language Processing, Experimental Design, Forecasting, Data Wrangling, Prompt Engineering, Databases, Statistics, Probability, Calculus, Linear Algebra, Differential Equations, Dynamic Systems
-- **Languages:** Python (Pandas, NumPy, Matplotlib, Seaborn, NLTK, Streamlit, Matplotlib, Seaborn, Scikit learn), R (tidyverse, ggplot2, rstatix, car), SQL (PostgreSQL, pgAdmin)
+- **Languages:** Python (Pandas, NumPy, Matplotlib, Seaborn, NLTK, Streamlit, Matplotlib, Scikit learn), R (tidyverse, ggplot2, rstatix, car), SQL (PostgreSQL, pgAdmin)
 - **Tools:** MS Excel, SPSS, Prism, FIJI, Tableau
 
 ![RStudio](https://img.shields.io/badge/RStudio-1f65cc?style=flat&logo=rstudioide&logoColor=%2375AADB)&nbsp;
