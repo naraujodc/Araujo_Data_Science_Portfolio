@@ -45,7 +45,7 @@ I am constantly updating it.
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%234169E1?logo=postgresql&logoColor=%23FFFFFF)&nbsp;
 
 ## Projects
-<img align="left" width="250" height="175" src="https://github.com/naraujodc/RAG_Chatbot_Ballet/blob/main/images/RAG_Ballet_Chatbot_Usage.png"> **[Classical Ballet RAG Chatbot](https://github.com/naraujodc/RAG_Chatbot_Ballet)**
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/RAG_Chatbot_Ballet/blob/main/images/RAG_Ballet_Chatbot_Usage.png"> **[Classical Ballet RAG Assistant](https://github.com/naraujodc/RAG_Chatbot_Ballet)**
 
 This project is an advanced Retrieval-Augmented Generation (RAG) system built to provide accurate, context-specific answers about classical ballet. It demonstrates my expertise in agentic design, custom tool creation, and specialized knowledge retrieval.
 
