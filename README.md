@@ -15,7 +15,7 @@ I am constantly updating it.
 
 ## Skills
 - **Methodologies:** Machine Learning, API Integration, Natural Language Processing, Experimental Design, Forecasting, Data Wrangling, Prompt Engineering, Databases, Statistics, Probability, Calculus, Linear Algebra, Differential Equations, Dynamic Systems
-- **Languages:** Python (Pandas, NumPy, Matplotlib, Seaborn, NLTK, Streamlit, Matplotlib, Scikit learn), R (tidyverse, ggplot2, rstatix, car), SQL (PostgreSQL, pgAdmin)
+- **Languages:** Python, R, SQL
 - **Tools:** MS Excel, SPSS, Prism, FIJI, Tableau
 
 ![RStudio](https://img.shields.io/badge/RStudio-1f65cc?style=flat&logo=rstudioide&logoColor=%2375AADB)&nbsp;
@@ -27,6 +27,11 @@ I am constantly updating it.
 ![Pandas](https://img.shields.io/badge/pandas%20-%23150458.svg?&style=flat&logo=pandas&logoColor=white)&nbsp;
 ![NLTK](https://img.shields.io/badge/NLTK-339933?logo=python&logoColor=white)&nbsp;
 ![Seaborn](https://img.shields.io/badge/Seaborn-79b6bc)&nbsp;
+![crewAI](https://img.shields.io/badge/crewAI-2a7e75?style=flat&logo=crewai)&nbsp;
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai)&nbsp;
+![DuckDB](https://img.shields.io/badge/DuckDB-CC6600?style=flat&logo=duckdb)&nbsp;
+![Sentence Transformers](https://img.shields.io/badge/Sentence--Transformers-4A73E8?style=flat&logo=huggingface)&nbsp;
+![Docling](https://img.shields.io/badge/Docling-00BFFF?style=flat&logo=markdown)&nbsp;
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-1e3f5a)&nbsp;
 ![Graphviz](https://img.shields.io/badge/graphviz-5d81a3)&nbsp;
 ![VS Code](https://img.shields.io/badge/VS_Code-179ff1)&nbsp;
@@ -40,6 +45,20 @@ I am constantly updating it.
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%234169E1?logo=postgresql&logoColor=%23FFFFFF)&nbsp;
 
 ## Projects
+<img align="left" width="250" height="175" src="https://github.com/naraujodc/RAG_Chatbot_Ballet/blob/main/images/RAG_Ballet_Chatbot_Usage.png"> **[Classical Ballet RAG Chatbot](https://github.com/naraujodc/RAG_Chatbot_Ballet)**
+
+This project is an advanced Retrieval-Augmented Generation (RAG) system built to provide accurate, context-specific answers about classical ballet. It demonstrates my expertise in agentic design, custom tool creation, and specialized knowledge retrieval.
+
+![Python](https://img.shields.io/badge/-Python-ffe873?style=flat&logo=python)&nbsp;
+![Streamlit](https://img.shields.io/badge/Streamlit-ececec?style=flat&logo=streamlit)&nbsp;
+![crewAI](https://img.shields.io/badge/crewAI-2a7e75?style=flat&logo=crewai)&nbsp;
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai)&nbsp;
+![DuckDB](https://img.shields.io/badge/DuckDB-CC6600?style=flat&logo=duckdb)&nbsp;
+![Sentence Transformers](https://img.shields.io/badge/Sentence--Transformers-4A73E8?style=flat&logo=huggingface)&nbsp;
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy)&nbsp;
+![Docling](https://img.shields.io/badge/Docling-00BFFF?style=flat&logo=markdown)&nbsp;
+
+#
 <img align="left" width="250" height="175" src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Images/uml-app-cover.png"> **[Unsupervised Machine Learning Explorer App](https://github.com/naraujodc/Araujo_Data_Science_Portfolio/tree/main/MLUnsupervisedApp)**
 
 This is an interactive app that invites the user to explore three different unsupervised machine learning methods: Principal Component Analysis, K-Means Clustering, and Hierarchical Clustering. It demonstrates my abilities to understand, tune, apply, and present unsupervised ML models.
