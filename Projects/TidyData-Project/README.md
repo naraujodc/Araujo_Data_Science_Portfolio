@@ -49,13 +49,13 @@ df_medals = df_medals.dropna()
 ```
 With this, I transformed a messy dataset into a tidy dataframe in a way that can be understood as:
 <p align="center">
-<img src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/TidyData-Project/images/tidy_data_example.jpg" />
+<img src="images/tidy_data_example.jpg" />
 
 ### Data Manipulation and Visualization
 Then, I used a few aggregation techniques to manipulate the data and construct useful visualizations such as the following:
 <p align="center">
-<img src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/TidyData-Project/images/medals_by_sport.png" width="450" height="350"/>
-<img src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/TidyData-Project/images/medals_by_gender_type.png" width="450" height="350"/>
+<img src="images/medals_by_sport.png" width="450" height="350"/>
+<img src="images/medals_by_gender_type.png" width="450" height="350"/>
 </p>
 
 - The standard format of tidy data was essential to manipulate the data and produce the visualizations above. For more detail, refer to the code in the Jupyter Notebook.
@@ -74,13 +74,13 @@ df_sport = pd.pivot_table(df_medals,
 The pivot table reorganized my data into a format that can be used to quickly present the data with more straightforward conclusions. This technique may be particularly useful for presenting data to stakeholders.
 
 <p align="center">
-<img src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/TidyData-Project/images/pivot_example.jpg" />
+<img src="images/pivot_example.jpg" />
 </p>
 
 Using the new pivot table, I created a visualization showing the percentage of medals in each sport that were received by female and male athletes.
 
 <p align="center">
-<img src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/TidyData-Project/images/medal_gender_dist_sport.png" />
+<img src="images/medal_gender_dist_sport.png" />
 </p>
 
 #### Final Remarks
