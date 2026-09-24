@@ -79,14 +79,14 @@ $$
 I plotted a phase-plane diagram to visualize the state of the predator population versus the state of the prey population. I used an arbitrary case where $r=0.1$, $\alpha=0.005$, $\epsilon=0.4$, and $\mu=0.08$. Here, the arrows indicate the direction of change of the populations.
 
 <p align="center">
-<img width=411 height=386 src="Projects/Lotka_Volterra_Predator_Prey_Project/images/phase_arrows.png">
+<img width=411 height=386 src="images/phase_arrows.png">
 </p>
 
 The curves I added to the diagram are the **null clines**, which indicate where one of the variables remains constant and correspond to the co-existence equilibrium equations I found previously. Their point of intersection represents the equilibrium for the whole system. In addition, it is possible to see that the null clines divide the phase-plane space into four sectors:
 
 <p align="center">
-<img width=603.5 height=347.25 src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/phase%20arrows%20labeled.jpeg">
-<p />
+<img width=603.5 height=347.25 src="images/phase%20arrows%20labeled.jpeg">
+</p>
 
 In the phase-plane plot, the prey and predator populations seem to flow in a circle around the co-existence equilibrium. At some points, both of them increase/decrease at the same time, whereas at other points one of them increases while the other decreases, always cyclically. Thus, I predicted that the solution to this model would reveal a cyclical, wavelike pattern of increasing and decreasing populations, with the moments of increase/decrease partially overlapping.
 
@@ -94,10 +94,10 @@ In the phase-plane plot, the prey and predator populations seem to flow in a cir
 I used the ordinary differential equation (ODE) solver from the R `deSolve` library to find the solutions for the Lotka-Volterra predator-prey model. I used the same parameters as in the phase-plane plot ($r=0.1$, $\alpha=0.005$, $\epsilon=0.4$, and $\mu=0.08$) and the initial conditions $n_1=60$, $n_2=50$.
 
 <p align="center">
-<img width=308.25 height=289.6875 src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/n1%20ode.png">
-<img width=308.25 height=289.6875  src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/n2%20ode.png">
-<img width=308.25 height=289.6875  src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/n1%20n2%20ode.png">
-<p />
+<img width=308.25 height=289.6875 src="images/n1%20ode.png">
+<img width=308.25 height=289.6875  src="images/n2%20ode.png">
+<img width=308.25 height=289.6875  src="images/n1%20n2%20ode.png">
+</p>
 
 The solution is consistent with my analysis of the phase-plane plot because it shows a cyclical pattern of increasing and decreasing populations, with these moments being sometimes synchronized and sometimes opposed. As it can be easily observed in the overlaid plot, $n_1$ goes from decreasing to increasing and vice-versa when $n_2=20$. Similarly, $n_2$ goes from increasing to decreasing and vice-versa when $n_1=40$. This reflects exactly the point of intersection of the null-clines in the phase-arrows plot.
 
@@ -146,22 +146,22 @@ $$
 I plotted a phase-plane diagram to visualize the state of the predator population versus the state of the prey population. I used the same arbitrary case as before where $r=0.1$, $\alpha=0.005$, $\epsilon=0.4$, and $\mu=0.08$, with the additional parameter $K=50$. Here, the arrows indicate the direction of change of the populations.
 
 <p align="center">
-<img width=411 height=386.25 src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/phase%20arrows%20prey%20predator%20k1.png">
+<img width=411 height=386.25 src="images/phase%20arrows%20prey%20predator%20k1.png">
 <p />
 
 Once again, the null-clines divide the phase-plane plot into four sectors and intersect at the co-existence equilibrium:
 
 <p align="center">
-<img width=603.5 height=347.25 src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/phase%20arrows%20k1%20labeled.jpeg">
+<img width=603.5 height=347.25 src="images/phase%20arrows%20k1%20labeled.jpeg">
 <p />
 
 ### Solution to the Model
 I used the ordinary differential equation (ODE) solver from the R `deSolve` library to find the solutions for the Lotka-Volterra predator-prey model with a carrrying capacity for prey. I used the same parameters as in the phase-plane plot ($r=0.1$, $\alpha=0.005$, $\epsilon=0.4$, $\mu=0.08$, and $K=50$) and the initial conditions $n_1=60$, $n_2=50$.
 
 <p align="center">
-<img width=308.25 height=289.6875 src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/n1%20k1%20ode.png">
-<img width=308.25 height=289.6875  src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/n2%20k1%20ode.png">
-<img width=308.25 height=289.6875  src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/n1n2%20k1%20ode.png">
+<img width=308.25 height=289.6875 src="images/n1%20k1%20ode.png">
+<img width=308.25 height=289.6875  src="images/n2%20k1%20ode.png">
+<img width=308.25 height=289.6875  src="images/n1n2%20k1%20ode.png">
 <p />
 
 When a carrying capacity is added to the system, the solution of the ODE shows that, instead of following a cyclical pattern of oscillations, predator and prey stabilize at values corresponding to the co-existence equilibrium. These values can be seen at the intersection of the null-clines in the phase-space plot. Unlike in the first model I solved for, this is a stable equilibrium.
@@ -172,15 +172,15 @@ Finally, I decided to investigate under what circumstances predator invasion is 
 To discover which parameter values would allow for successful invasion, I solved the model with the same parameters as before ($r=0.1$, $\alpha=0.005$, $\epsilon=0.4$, and $\mu=0.08$), but with varying values of $K$. In addition, I used the initial conditions $n_1=K$ and $n_2=1$.
 
 <p align="center">
-<img width=308.25 height=289.6875 src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/ode10.png">
-<img width=308.25 height=289.6875  src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/ode30.png">
-<img width=308.25 height=289.6875  src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/ode50.png">
+<img width=308.25 height=289.6875 src="images/ode10.png">
+<img width=308.25 height=289.6875  src="images/ode30.png">
+<img width=308.25 height=289.6875  src="images/ode50.png">
 <p />
 
 <p align="center">
-<img width=308.25 height=289.6875 src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/ode75.png">
-<img width=308.25 height=289.6875  src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/ode100.png">
-<img width=308.25 height=289.6875  src="https://github.com/naraujodc/Araujo_Data_Science_Portfolio/blob/main/Lotka_Volterra_Predator_Prey_Project/images/ode1000.png">
+<img width=308.25 height=289.6875 src="images/ode75.png">
+<img width=308.25 height=289.6875  src="images/ode100.png">
+<img width=308.25 height=289.6875  src="images/ode1000.png">
 <p />
 
 For a successful invasion, we must have a value of $K>\frac{\mu}{\epsilon\alpha}$, which is the co-existence equilibrium value for $n_1$. By looking at the phase-space plot, we can predict that any initial values $n_2=1$ and $n_1<\frac{\mu}{\epsilon\alpha}$, $n_1$ will tend to increase back to $\frac{\mu}{\epsilon\alpha}$ and $n_2$ will decrease to 0. This is what I observed when solving for $n_1=K=10$ and $n_1=K=30$, as pictured above. The predator went extinct. However, when $n_1=K>\frac{\mu}{\epsilon\alpha}$, there are initial oscillations in the populations of predator and prey, but they always stabilize at the equilibrium values found at the intersection of the null-clines in the phase-space plot. The larger $K$ is, the more oscillations happen before equilibrium is reached.
