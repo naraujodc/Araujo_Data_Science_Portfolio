@@ -79,7 +79,7 @@ $$
 I plotted a phase-plane diagram to visualize the state of the predator population versus the state of the prey population. I used an arbitrary case where $r=0.1$, $\alpha=0.005$, $\epsilon=0.4$, and $\mu=0.08$. Here, the arrows indicate the direction of change of the populations.
 
 <p align="center">
-<img width=411 height=386 src="Lotka_Volterra_Predator_Prey_Project/images/phase_arrows.png">
+<img width=411 height=386 src="Projects/Lotka_Volterra_Predator_Prey_Project/images/phase_arrows.png">
 </p>
 
 The curves I added to the diagram are the **null clines**, which indicate where one of the variables remains constant and correspond to the co-existence equilibrium equations I found previously. Their point of intersection represents the equilibrium for the whole system. In addition, it is possible to see that the null clines divide the phase-plane space into four sectors:
