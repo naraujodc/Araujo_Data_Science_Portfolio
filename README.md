@@ -14,7 +14,7 @@ I am constantly updating it.
 - **Nu Rho Psi** - National Honors Society in Neuroscience Lifetime Member
 
 ## Skills
-- **Methodologies:** Machine Learning, API Integration, Natural Language Processing, Experimental Design, Forecasting, Data Wrangling, Prompt Engineering, Databases, Statistics, Probability, Calculus, Linear Algebra, Differential Equations, Dynamic Systems
+- **Methodologies:** Machine Learning, API Integration, Natural Language Processing, Webscraping, Experimental Design, Forecasting, Data Wrangling, Prompt Engineering, Statistics, Probability, Calculus, Linear Algebra, Differential Equations, Dynamic Systems
 - **Languages:** Python, R, SQL
 - **Tools:** MS Excel, SPSS, Prism, FIJI, Tableau
 
